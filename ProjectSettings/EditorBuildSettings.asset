@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/SoranoanaRogoSystem/rogoOnSoranoana2.unity
+    guid: 6d0a6d9565ac2c741b388837ae39f39e
+  - enabled: 1
+    path: Assets/Scenes/title.unity
+    guid: a7f7d8c7fe53ba841abc7d577c2fa39a
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 278aa267dcfa7a840be179c62df92b5d
+  - enabled: 1
+    path: Assets/Scenes/mainGame.unity
+    guid: 4a3b316a238e3584688fe60c78a17d8b
+  - enabled: 1
+    path: Assets/Scenes/result.unity
+    guid: 10345d717f84cf1468ee14c55053ac13
+  m_configObjects: {}
