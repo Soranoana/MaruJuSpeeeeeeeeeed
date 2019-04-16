@@ -26,4 +26,16 @@ public class button : MonoBehaviour {
     public void OnGoTutorial() {
         SceneManager.LoadScene(m_Tutorial);
     }
+
+    public void OnTestButton() {
+        Debug.Log("tested");
+    }
+
+    public void OnGoRanking() {
+        Debug.Log("GoRanking");
+    }
+
+    public void OnGoSetting() {
+        Debug.Log("GoSetting");
+    }
 }
