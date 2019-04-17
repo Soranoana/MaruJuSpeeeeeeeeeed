@@ -9,14 +9,14 @@ public class resultSystem : MonoBehaviour {
     public Text highScoreText;
 
 	void Start () {
-        if (PlayerPrefs.GetInt("score")>PlayerPrefs.GetInt("highscore")) {
+        if (PlayerPrefs.GetInt("score") > PlayerPrefs.GetInt("highscore")) {
             PlayerPrefs.SetInt("highscore", PlayerPrefs.GetInt("score"));
             PlayerPrefs.Save();
         }
     }
 	
 	void Update () {
-        resultText.text=PlayerPrefs.GetInt("score").ToString();
-        highScoreText.text=PlayerPrefs.GetInt("highscore").ToString();
+        resultText.text = PlayerPrefs.GetInt("score").ToString();
+        highScoreText.text = PlayerPrefs.GetInt("highscore").ToString();
 	}
 }

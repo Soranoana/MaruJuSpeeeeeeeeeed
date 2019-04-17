@@ -41,21 +41,21 @@ public class objectCreate : MonoBehaviour {
                 }
             }
         } else {
-            if (GenelatedObject[0]==null) {
+            if (GenelatedObject[0] == null) {
                 Debug.Log("ok");
-                GenelatedObject[0]=Instantiate(Object, ( transform.position+transform.up+transform.right ).normalized*0.01f, Object.transform.rotation);
-                GenelatedObject[0].name="ObjectParent";
+                GenelatedObject[0] = Instantiate(Object, ( transform.position+transform.up+transform.right ).normalized * 0.01f, Object.transform.rotation);
+                GenelatedObject[0].name = "ObjectParent";
             }
             
         }
-        for (int i = 0; i<4; i++) {
-            geneTime[i]+=deltaTime;
+        for (int i = 0; i < 4; i++) {
+            geneTime[i] += deltaTime;
         }
 	}
 
     private int genelatorEmptyNum() {
-        for (int i = 0; i<100; i++) {
-            if (GenelatedObject[i]==null) {
+        for (int i = 0; i < 100; i++) {
+            if (GenelatedObject[i] == null) {
                 return i;
             }
         }
@@ -71,6 +71,6 @@ public class objectCreate : MonoBehaviour {
     }
 
     public void setIsTutorial(bool flg) {
-        isTutorial=flg;
+        isTutorial = flg;
     }
 }
