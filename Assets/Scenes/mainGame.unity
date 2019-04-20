@@ -274,6 +274,7 @@ GameObject:
   - component: {fileID: 266445144}
   - component: {fileID: 266445146}
   - component: {fileID: 266445145}
+  - component: {fileID: 266445147}
   m_Layer: 0
   m_Name: outsideCircle
   m_TagString: Untagged
@@ -339,6 +340,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 266445143}
   m_Mesh: {fileID: 4300012, guid: 0c40f67fd19737d4ea6f02b28ff1fc4b, type: 3}
+--- !u!64 &266445147
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 266445143}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300012, guid: 0c40f67fd19737d4ea6f02b28ff1fc4b, type: 3}
 --- !u!1 &393846954
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,7 +386,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 24, y: 161.4}
+  m_AnchoredPosition: {x: 24, y: 319}
   m_SizeDelta: {x: 215.3, y: 125.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &393846956
@@ -1177,7 +1192,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -425.27, y: 138.9}
+  m_AnchoredPosition: {x: -268, y: 703}
   m_SizeDelta: {x: 245.75, y: 80.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1301850044
@@ -1431,7 +1446,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -425.28, y: 24.3}
+  m_AnchoredPosition: {x: -268, y: 584}
   m_SizeDelta: {x: 245.7, y: 77.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1516391529
@@ -1581,7 +1596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -364.2, y: 250.2}
+  m_AnchoredPosition: {x: -272, y: 828}
   m_SizeDelta: {x: 367.9, y: 91.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1586016958
@@ -1656,7 +1671,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 397.8, y: 250.2}
+  m_AnchoredPosition: {x: 397.8, y: 818}
   m_SizeDelta: {x: 176.4, y: 91.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1591644144
@@ -1731,7 +1746,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -364.2, y: 291}
+  m_AnchoredPosition: {x: -272, y: 868.80005}
   m_SizeDelta: {x: 367.9, y: 91.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1696217192
@@ -1806,7 +1821,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -171.8, y: 6.5}
+  m_AnchoredPosition: {x: -320, y: 6.5}
   m_SizeDelta: {x: 176.3, y: 90.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1767975113
@@ -1881,7 +1896,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 23.999989, y: -186.8}
+  m_AnchoredPosition: {x: 23.999989, y: -331}
   m_SizeDelta: {x: 215.3, y: 100.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1798989264
@@ -2154,7 +2169,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 496, y: 291}
+  m_AnchoredPosition: {x: 496, y: 859}
   m_SizeDelta: {x: 367.9, y: 91.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1915409762
@@ -2229,7 +2244,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 179, y: 6.5}
+  m_AnchoredPosition: {x: 314, y: 6.5}
   m_SizeDelta: {x: 181.3, y: 90.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2014133784

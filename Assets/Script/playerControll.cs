@@ -10,7 +10,6 @@ public class playerControll : MonoBehaviour {
     [SerializeField]
     private GameObject Genelator;
     public system cameraSys;
-    private bool peneltied = false;
     private int penaltyTimeCount;
     private int penaltyTimeCountDistance;
     private int penaltyOfObject;
@@ -22,6 +21,8 @@ public class playerControll : MonoBehaviour {
     private Vector3 wasVector;  //1フレーム前の座標
     private bool isTapping = false; //タップ中である
     private Vector3 moveVector; //加算する座標値
+    private bool isCollisionCircle = false;
+    private float edgeOfCircle = 2.35f; //半径　マジックナンバー
 
     private bool isTutorial;
 
@@ -33,7 +34,6 @@ public class playerControll : MonoBehaviour {
 
         penaltyTimeCount = 0;
         penaltyTimeCountDistance = 30;
-
     }
 
     void Start () {
@@ -50,32 +50,31 @@ public class playerControll : MonoBehaviour {
             //タップエンド
             isTapping = false;
         }
-
-        /*
-        touchWorldPosition = gameCamera.ScreenToWorldPoint(Input.mousePosition);
-        touchWorldPosition = new Vector3(touchWorldPosition.x, touchWorldPosition.y, 0);
-        transform.position = touchWorldPosition;
-        if (Vector3.Distance(transform.position, Genelator.transform.position) >= 4f) {
-            transform.position = (transform.position - Genelator.transform.position).normalized * 4f;
-            if (SceneManager.GetActiveScene().name == "mainGame" || SceneManager.GetActiveScene().name == "Tutorial") {
-                if (penaltyTimeCount % penaltyTimeCountDistance == 0) {
-                    peneltied = false;
-                }
-                if (!peneltied) {
-                    cameraSys.penalty(getPenaltyOfCircle() * (penaltyTimeCount / penaltyTimeCountDistance + 1));
-                    peneltied = true;
-                }
+        //移動処理
+        moveVector = gameCamera.ScreenToWorldPoint(Input.mousePosition) - wasVector;
+        moveVector = new Vector3(moveVector.x, moveVector.y, 0);
+        //実際に移動するのはタップ中のみ
+        if (isTapping) {
+            transform.position += moveVector;
+        }
+        //過去座標更新
+        wasVector = gameCamera.ScreenToWorldPoint(Input.mousePosition);
+        //境界処理とペナルティ処理
+        if (Vector3.Distance(transform.position, Genelator.transform.position) >= edgeOfCircle) {
+            //境界処理
+            transform.position = (transform.position - Genelator.transform.position).normalized * edgeOfCircle;
+            //30フレームごとにペナルティ
+            if (penaltyTimeCount % penaltyTimeCountDistance == 0) {
+                cameraSys.penalty(getPenaltyOfCircle() * (penaltyTimeCount / penaltyTimeCountDistance + 1));
             }
             penaltyTimeCount++;
         } else {
             penaltyTimeCount = 0;
-            peneltied = false;
         }
-        */
     }
 
-    void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.tag == "object" && !isTutorial) {
+    public void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.tag == "object") {
             cameraSys.penalty(getPenaltyOfObject());
             Destroy(collision.gameObject);
         } else if (collision.gameObject.tag == "Genelator") {
@@ -83,18 +82,30 @@ public class playerControll : MonoBehaviour {
         }
     }
 
+    public void OnCollisionStay(Collision collision) {
+        if (collision.gameObject.name == "outsideCircle") {
+            isCollisionCircle = true;
+        }
+    }
+
+    public void OnCollisionExit(Collision collision) {
+        if (collision.gameObject.name == "outsideCircle") {
+            isCollisionCircle = false;
+        }
+    }
+    //オブジェクトペナルティ
     public int getPenaltyOfObject() {
         return penaltyOfObject;
     }
-
+    //中心接触ペナルティ
     public int getPenaltyOfGenerator() {
         return penaltyOfGenerator;
     }
-
+    //外円ペナルティ
     public int getPenaltyOfCircle() {
         return penaltyOfCircle;
     }
-
+    //逆走ペナルティ
     public int getPenaltyOfLeft() {
         return penaltyOfLeft;
     }
