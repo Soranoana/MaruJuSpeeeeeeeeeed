@@ -17,14 +17,23 @@ public class system : MonoBehaviour {
     private float playerRad;
     private bool changeZone;
     private float score;
-    public Text scoreText;
-    public Text time1Text;
-    public Text time2Text;
-    public Text time3Text;
-    public Text time4Text;
-    public Text timeAllText;
-    public Text scoreUp;
-    public Text scoreDown;
+    public TextMesh scoreText;
+    public TextMesh time1Text;
+    public TextMesh time2Text;
+    public TextMesh time3Text;
+    public TextMesh time4Text;
+    public TextMesh timeAllText;
+    public TextMesh scoreUp;
+    public TextMesh scoreDown;
+    private MeshRenderer scoreMesh;
+    private MeshRenderer time1Mesh;
+    private MeshRenderer time2Mesh;
+    private MeshRenderer time3Mesh;
+    private MeshRenderer time4Mesh;
+    private MeshRenderer timeAllMesh;
+    private MeshRenderer scoreUpMesh;
+    private MeshRenderer scoreDownMesh;
+
     private float upTime;
     private float downTime;
     private float delta;
@@ -47,11 +56,21 @@ public class system : MonoBehaviour {
         downTime = 0;
         alltime = 0;
 
+        scoreMesh = scoreText.transform.GetComponent<MeshRenderer>();
+        time1Mesh = time1Text.transform.GetComponent<MeshRenderer>();
+        time2Mesh = time2Text.transform.GetComponent<MeshRenderer>();
+        time3Mesh = time3Text.transform.GetComponent<MeshRenderer>();
+        time4Mesh = time4Text.transform.GetComponent<MeshRenderer>();
+        timeAllMesh = timeAllText.transform.GetComponent<MeshRenderer>();
+        scoreUpMesh = scoreUp.transform.GetComponent<MeshRenderer>();
+        scoreDownMesh = scoreDown.transform.GetComponent<MeshRenderer>();
+
+
         if (SceneManager.GetActiveScene().name != "title") {
             scoreDown.text = "0";
             scoreUp.text = "0";
-            scoreUp.enabled = false;
-            scoreDown.enabled = false;
+            scoreUpMesh.enabled = false;
+            scoreDownMesh.enabled = false;
         }
 
         if (SceneManager.GetActiveScene().name == "Tutorial")
@@ -87,8 +106,8 @@ public class system : MonoBehaviour {
             if (!isTutorial) {
                 checkScoreUpDown();
             } else {
-                scoreDown.enabled = true;
-                scoreUp.enabled = true;
+                scoreDownMesh.enabled = true;
+                scoreUpMesh.enabled = true;
             }
             if (gameTime - (int)alltime <= 0 && !isTutorial) {
                 //timeUp
@@ -163,7 +182,7 @@ public class system : MonoBehaviour {
         if (setCorrectOrNot()) {
             score += zoneTime;
             upTime = 0;
-            scoreUp.enabled = true;
+            scoreUpMesh.enabled = true;
             scoreUp.text = ((int)zoneTime).ToString();
             zoneTime = startScore;
         } else {
@@ -176,36 +195,36 @@ public class system : MonoBehaviour {
         if (!isTutorial) {
             scoreText.text = ((int)score).ToString();
             if (nowZone == 1) {
-                time1Text.enabled = true;
-                time2Text.enabled = false;
-                time3Text.enabled = false;
-                time4Text.enabled = false;
+                time1Mesh.enabled = true;
+                time2Mesh.enabled = false;
+                time3Mesh.enabled = false;
+                time4Mesh.enabled = false;
                 time1Text.text = ((int)zoneTime).ToString();
             } else if (nowZone == 2) {
-                time1Text.enabled = false;
-                time2Text.enabled = true;
-                time3Text.enabled = false;
-                time4Text.enabled = false;
+                time1Mesh.enabled = false;
+                time2Mesh.enabled = true;
+                time3Mesh.enabled = false;
+                time4Mesh.enabled = false;
                 time2Text.text = ((int)zoneTime).ToString();
             } else if (nowZone == 3) {
-                time1Text.enabled = false;
-                time2Text.enabled = false;
-                time3Text.enabled = true;
-                time4Text.enabled = false;
+                time1Mesh.enabled = false;
+                time2Mesh.enabled = false;
+                time3Mesh.enabled = true;
+                time4Mesh.enabled = false;
                 time3Text.text = ((int)zoneTime).ToString();
             } else if (nowZone == 4) {
-                time1Text.enabled = false;
-                time2Text.enabled = false;
-                time3Text.enabled = false;
-                time4Text.enabled = true;
+                time1Mesh.enabled = false;
+                time2Mesh.enabled = false;
+                time3Mesh.enabled = false;
+                time4Mesh.enabled = true;
                 time4Text.text = ((int)zoneTime).ToString();
             }
             timeAllText.text = (gameTime - (int)alltime).ToString();
         } else {
-            time1Text.enabled = true;
-            time2Text.enabled = false;
-            time3Text.enabled = false;
-            time4Text.enabled = false;
+            time1Mesh.enabled = true;
+            time2Mesh.enabled = false;
+            time3Mesh.enabled = false;
+            time4Mesh.enabled = false;
             time1Text.text = ((int)zoneTime).ToString();
             scoreText.text = ((int)score).ToString();
             timeAllText.text = "60";
@@ -216,23 +235,23 @@ public class system : MonoBehaviour {
         if (SceneManager.GetActiveScene().name == "mainGame" || SceneManager.GetActiveScene().name == "Tutorial") {
             score -= point;
             downTime = 0;
-            scoreDown.enabled = true;
+            scoreDownMesh.enabled = true;
             scoreDown.text = point.ToString();
         }
     }
 
     void checkScoreUpDown() {
-        if (scoreUp.enabled) {
+        if (scoreUpMesh.enabled) {
             upTime++;
             if (upTime >= 30) {
                 upTime = 0;
-                scoreUp.enabled = false;
+                scoreUpMesh.enabled = false;
             }
-        }else if (scoreDown.enabled) {
+        }else if (scoreDownMesh.enabled) {
             downTime++;
             if (downTime >= 30) {
                 downTime = 0;
-                scoreDown.enabled = false;
+                scoreDownMesh.enabled = false;
             }
         }
     }
