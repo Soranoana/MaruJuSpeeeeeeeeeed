@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class resultSystem : MonoBehaviour {
 
-    public Text resultText;
-    public Text highScoreText;
+    public TextMesh resultText;
+    public TextMesh highScoreText;
 
 	void Start () {
         if (PlayerPrefs.GetInt("score") > PlayerPrefs.GetInt("highscore")) {

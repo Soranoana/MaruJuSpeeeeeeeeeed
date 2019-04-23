@@ -45,7 +45,7 @@ public class system : MonoBehaviour {
         if (PlayerPrefs.GetInt("highscore") < 0 && SceneManager.GetActiveScene().name == "mainGame") {
             PlayerPrefs.SetInt("highscore", 0);
         }
-        gameTime = 60;
+        gameTime = 5;
         startScore = 100;
         zoneTime = startScore;
         changeZone = false;
