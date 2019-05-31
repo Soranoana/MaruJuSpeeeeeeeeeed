@@ -51,6 +51,8 @@ public class tutorialSystem : MonoBehaviour {
     private float sumTimes = 0f;
     private float alphaChangeTime;
 
+    private 
+
     void Start () {
         alphaChangeTime = 0.2f;
         playerMesh = player.GetComponent<MeshRenderer>();
@@ -198,5 +200,13 @@ public class tutorialSystem : MonoBehaviour {
         } else {
             genelator.material.color = new Color(1, 0, 0, 0);
         }
+    }
+
+    void setBlinkText(MeshRenderer blinkText) {
+        
+    }
+
+    void textBlink() {
+
     }
 }
